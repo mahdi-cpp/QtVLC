@@ -1,6 +1,0 @@
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/QC_PROJECT_NAME.dir
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/QtVLC.dir
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/QC_PROJECT_NAME_autogen.dir
-/home/mahdi/CLionProjects/QtVLC/cmake-build-debug/CMakeFiles/QtVLC_autogen.dir
