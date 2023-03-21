@@ -8,15 +8,13 @@
 #include "player.h"
 #include <vlc/vlc.h>
 
-//#define qtu( i ) ((i).toUtf8().constData())
-
 #include <QtGui>
 #include <QMessageBox>
 #include <QMenuBar>
 #include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QFileDialog>
+
 
 Mwindow::Mwindow() {
 
@@ -45,7 +43,6 @@ void Mwindow::initUI() {
 
     /* Menu */
     QMenu *fileMenu = menuBar()->addMenu("&File");
-    QMenu *editMenu = menuBar()->addMenu("&Edit");
 
     QAction *Open = new QAction("&Open", this);
     QAction *Quit = new QAction("&Quit", this);
@@ -59,8 +56,7 @@ void Mwindow::initUI() {
     fileMenu->addAction(Open);
     fileMenu->addAction(aboutAc);
     fileMenu->addAction(Quit);
-    editMenu->addAction(playAc);
-    editMenu->addAction(fsAc);
+
 
     connect(Open, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(playAc, SIGNAL(triggered()), this, SLOT(play()));
@@ -121,19 +117,14 @@ void Mwindow::initUI() {
     centralWidget->setLayout(layout2);
     setCentralWidget(centralWidget);
     resize(600, 400);
-}
 
-void Mwindow::openFile() {
-
-    /* The basic file-select box */
-    QString fileOpen = QFileDialog::getOpenFileName(this, tr("Load a file"), "~");
 
     /* Stop if something is playing */
     if (vlcPlayer && libvlc_media_player_is_playing(vlcPlayer))
         stop();
 
     /* Create a new Media */
-    libvlc_media_t *vlcMedia = libvlc_media_new_path(vlcInstance, "/home/mahdi/Downloads/Ragheb - Bahar (320).mp3");
+    libvlc_media_t *vlcMedia = libvlc_media_new_path(vlcInstance, "/opt/Movieis/movie/see/Top.Gun.Maverick.2022.IMAX.1080p.10bit.WEB-DL.6CH.x265.SoftSub.DigiMoviez.mkv");
     if (!vlcMedia)
         return;
 
@@ -144,13 +135,9 @@ void Mwindow::openFile() {
     libvlc_media_release(vlcMedia);
 
     /* Integrate the video in the interface */
-#if defined(Q_OS_MAC)
-    libvlc_media_player_set_nsobject(vlcPlayer, (void *)videoWidget->winId());
-#elif defined(Q_OS_UNIX)
+
     libvlc_media_player_set_xwindow(vlcPlayer, videoWidget->winId());
-#elif defined(Q_OS_WIN)
-    libvlc_media_player_set_hwnd(vlcPlayer, (HWND)videoWidget->winId());
-#endif
+
 
     /* And start playback */
     libvlc_media_player_play(vlcPlayer);
@@ -158,6 +145,7 @@ void Mwindow::openFile() {
     /* Update playback button */
     playBut->setText("Pause");
 }
+
 
 void Mwindow::play() {
     if (!vlcPlayer)

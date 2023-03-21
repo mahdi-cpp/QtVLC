@@ -13,6 +13,7 @@
 #include <QPushButton>
 #include <QSlider>
 #include <QWidget>
+
 #include <vlc/vlc.h>
 
 class Mwindow : public QMainWindow {
@@ -24,7 +25,6 @@ class Mwindow : public QMainWindow {
                virtual ~Mwindow();
 
         private slots:
-               void openFile();
                void play();
                void stop();
                void mute();
