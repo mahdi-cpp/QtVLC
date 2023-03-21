@@ -1,0 +1,8 @@
+/home/mahdi/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/mahdi/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/ninja/linux/ninja -DCMAKE_PREFIX_PATH=~/Qt5.10.1/5.10.1/gcc_64/lib/cmake -G Ninja /home/mahdi/CLionProjects/QtVLC
+-- [QtVLC] Project QtVLC 0.1
+-- [QtVLC] C++ compiler ID is: GNU
+-- [QtVLC] Set warnings as error
+-- [QtVLC] Qt version is: 5.10
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/mahdi/CLionProjects/QtVLC/cmake-build-debug
