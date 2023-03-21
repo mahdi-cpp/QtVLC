@@ -123,6 +123,7 @@ void Mwindow::initUI() {
     if (vlcPlayer && libvlc_media_player_is_playing(vlcPlayer))
         stop();
 
+
     /* Create a new Media */
     libvlc_media_t *vlcMedia = libvlc_media_new_path(vlcInstance, "/opt/Movieis/movie/see/Top.Gun.Maverick.2022.IMAX.1080p.10bit.WEB-DL.6CH.x265.SoftSub.DigiMoviez.mkv");
     if (!vlcMedia)
