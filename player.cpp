@@ -10,7 +10,6 @@
 
 #include <QtGui>
 #include <QMessageBox>
-#include <QMenuBar>
 #include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -42,25 +41,19 @@ Mwindow::~Mwindow() {
 void Mwindow::initUI() {
 
     /* Menu */
-    QMenu *fileMenu = menuBar()->addMenu("&File");
 
     QAction *Open = new QAction("&Open", this);
     QAction *Quit = new QAction("&Quit", this);
     QAction *playAc = new QAction("&Play/Pause", this);
     QAction *fsAc = new QAction("&Fullscreen", this);
-    QAction *aboutAc = new QAction("&About", this);
+
 
     Open->setShortcut(QKeySequence("Ctrl+O"));
     Quit->setShortcut(QKeySequence("Ctrl+Q"));
 
-    fileMenu->addAction(Open);
-    fileMenu->addAction(aboutAc);
-    fileMenu->addAction(Quit);
-
 
     connect(Open, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(playAc, SIGNAL(triggered()), this, SLOT(play()));
-    connect(aboutAc, SIGNAL(triggered()), this, SLOT(about()));
     connect(fsAc, SIGNAL(triggered()), this, SLOT(fullscreen()));
     connect(Quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 
@@ -116,7 +109,7 @@ void Mwindow::initUI() {
 
     centralWidget->setLayout(layout2);
     setCentralWidget(centralWidget);
-    resize(600, 400);
+    resize(800, 480);
 
 
     /* Stop if something is playing */
@@ -220,10 +213,6 @@ void Mwindow::mute() {
 
         }
     }
-}
-
-void Mwindow::about() {
-    QMessageBox::about(this, "Qt libVLC player demo", QString::fromUtf8(libvlc_get_version()));
 }
 
 void Mwindow::fullscreen() {

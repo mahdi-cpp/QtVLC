@@ -28,7 +28,6 @@ class Mwindow : public QMainWindow {
                void play();
                void stop();
                void mute();
-               void about();
                void fullscreen();
 
                int changeVolume(int);
